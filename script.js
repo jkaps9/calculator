@@ -57,15 +57,30 @@ const displayFirstNum = display.querySelector("#firstNum")
 const displaySecondNum = display.querySelector("#secondNum")
 const displayOperator = display.querySelector("#operator")
 
-displayFirstNum.textContent = ""
-displaySecondNum.textContent = ""
-displayOperator.textContent = ""
+function refreshDisplay() {
+    displayFirstNum.textContent = firstNum
+    displaySecondNum.textContent = secondNum
+    displayOperator.textContent = operator
+}
+
+refreshDisplay()
 
 const digitButtons = document.querySelectorAll(".digit")
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
-        firstNum += `${button.id}`
-        displayFirstNum.textContent = firstNum
+        if (operator === "") {
+            firstNum += `${button.id}`
+        } else {
+            secondNum += `${button.id}`
+        }
+        refreshDisplay()
     })
 })
 
+const clearButton = document.querySelector("#clear")
+clearButton.addEventListener("click", () => {
+    firstNum = ""
+    operator = ""
+    secondNum = ""
+    refreshDisplay()
+})

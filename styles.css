@@ -3,3 +3,19 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header,
+footer {
+    flex: 0;
+    height: 72px;
+}
+
+section {
+    flex: 1;
+}

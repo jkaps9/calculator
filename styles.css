@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: darkcyan;
 }
 
 header,
@@ -18,4 +19,25 @@ footer {
 
 section {
     flex: 1;
+}
+
+.calculator-container {
+    margin: 10px 25px;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 2px;
+}
+
+.button-row {
+    flex: 1;
+    display: flex;
+    gap: 2px;
+}
+
+.button-row button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
 }

@@ -26,7 +26,10 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) { return "#DIV/0" }
+    if (b === "0") {
+        alert("DOH! CANT DIVIDE BY ZERO")
+        return 0
+    }
     return +a / +b
 }
 
@@ -91,3 +94,26 @@ operatorButtons.forEach(button => {
 const equalsButton = document.querySelector("#equals")
 
 equalsButton.addEventListener("click", () => operate(operator, firstNum, secondNum))
+
+const decimalButton = document.querySelector("#decimal")
+
+decimalButton.addEventListener("click", () => {
+    if (operator === "") {
+        if (firstNum.indexOf(".") === -1) {
+            if (firstNum === "") {
+                firstNum = "0."
+            } else {
+                firstNum += "."
+            }
+        }
+    } else {
+        if (secondNum.indexOf(".") === -1) {
+            if (secondNum === "") {
+                secondNum = "0."
+            } else {
+                secondNum += "."
+            }
+        }
+    }
+    refreshDisplay()
+})

@@ -31,25 +31,27 @@ function divide(a, b) {
 }
 
 function operate(op, num1, num2) {
-    switch (op) {
-        case "+":
-            firstNum = `${add(num1, num2)}`
-            break
-        case "-":
-            firstNum = `${subtract(num1, num2)}`
-            break
-        case "*":
-            firstNum = `${multiply(num1, num2)}`
-            break
-        case "/":
-            firstNum = `${divide(num1, num2)}`
-            break
-        default:
-            console.log("invalid operator")
+    if (op != "" && num1 != "" && num2 != "") {
+        switch (op) {
+            case "+":
+                firstNum = `${add(num1, num2)}`
+                break
+            case "-":
+                firstNum = `${subtract(num1, num2)}`
+                break
+            case "*":
+                firstNum = `${multiply(num1, num2)}`
+                break
+            case "/":
+                firstNum = `${divide(num1, num2)}`
+                break
+            default:
+                console.log("invalid operator")
+        }
+        secondNum = ""
+        operator = ""
+        refreshDisplay()
     }
-    secondNum = ""
-    operator = ""
-    refreshDisplay()
 }
 
 //clear display on first load

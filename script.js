@@ -152,3 +152,9 @@ function parseDisplay() {
         }
     }
 }
+
+display.addEventListener("keypress", (e) => {
+    if (e.key === 'Enter') {
+        operate(operator, firstNum, secondNum)
+    }
+})

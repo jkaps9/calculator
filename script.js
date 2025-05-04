@@ -1,6 +1,6 @@
-var operator = ""
-var firstNum = ""
-var secondNum = ""
+let operator = ""
+let firstNum = ""
+let secondNum = ""
 
 const display = document.querySelector(".display")
 

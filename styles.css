@@ -29,12 +29,13 @@ section {
     gap: 2px;
 }
 
-.display-row {
+.display {
     background-color: white;
     padding: 10px 20px;
     margin-bottom: 10px;
     text-align: end;
     font-size: 20px;
+    min-height: 35px;
 }
 
 .button-row {

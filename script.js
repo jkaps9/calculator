@@ -52,14 +52,18 @@ let operator = "+"
 let firstNum = 12
 let secondNum = 4
 
-console.log(operate(operator, firstNum, secondNum)) //16
+const display = document.querySelector(".display")
+const displayFirstNum = display.querySelector("#firstNum")
+const displaySecondNum = display.querySelector("#secondNum")
+const displayOperator = display.querySelector("#operator")
 
-operator = "-"
-console.log(operate(operator, firstNum, secondNum)) //8
+console.log(`${displayFirstNum} ${displayOperator} ${displaySecondNum}`)
 
-operator = "*"
-console.log(operate(operator, firstNum, secondNum))//48
+displayFirstNum.textContent = ""
+displaySecondNum.textContent = ""
+displayOperator.textContent = ""
 
-operator = "/"
-console.log(operate(operator, firstNum, secondNum))//3
-
+const digitButtons = document.querySelectorAll(".digit")
+digitButtons.forEach(button => {
+    button.addEventListener("click", () => console.log(button.id))
+})

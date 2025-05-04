@@ -1,16 +1,16 @@
-function Calculator() {
-    this.methods = {
-        "+": (a, b) => a + b,
-        "-": (a, b) => a - b
-    }
-    this.calculate = function (str) {
-        let arr = str.split(" ")
-        return this.methods[arr[1]](+arr[0], +arr[2])
-    }
-    this.addMethod = function (name, func) {
-        this.methods[name] = func
-    }
-}
+// function Calculator() {
+//     this.methods = {
+//         "+": (a, b) => a + b,
+//         "-": (a, b) => a - b
+//     }
+//     this.calculate = function (str) {
+//         let arr = str.split(" ")
+//         return this.methods[arr[1]](+arr[0], +arr[2])
+//     }
+//     this.addMethod = function (name, func) {
+//         this.methods[name] = func
+//     }
+// }
 
 function add(a, b) {
     return +a + +b
@@ -29,15 +29,37 @@ function divide(a, b) {
     return +a / +b
 }
 
-console.log(add(4, 6)) //10
-console.log(subtract(40, 20)) //20
-console.log(multiply(5, 10)) //50
-console.log(divide(4, 2)) //2
-console.log(divide(4, 0)) //#DIV/0
+function operate(operator, firstNum, secondNum) {
+    switch (operator) {
+        case "+":
+            return add(firstNum, secondNum)
+            break
+        case "-":
+            return subtract(firstNum, secondNum)
+            break
+        case "*":
+            return multiply(firstNum, secondNum)
+            break
+        case "/":
+            return divide(firstNum, secondNum)
+            break
+        default:
+            return 0
+    }
+}
 
-
-let firstNum = 1
 let operator = "+"
-let secondNum = 2
+let firstNum = 12
+let secondNum = 4
 
+console.log(operate(operator, firstNum, secondNum)) //16
+
+operator = "-"
+console.log(operate(operator, firstNum, secondNum)) //8
+
+operator = "*"
+console.log(operate(operator, firstNum, secondNum))//48
+
+operator = "/"
+console.log(operate(operator, firstNum, secondNum))//3
 

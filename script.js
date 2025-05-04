@@ -48,16 +48,14 @@ function operate(operator, firstNum, secondNum) {
     }
 }
 
-let operator = "+"
-let firstNum = 12
-let secondNum = 4
+let operator = ""
+let firstNum = ""
+let secondNum = ""
 
 const display = document.querySelector(".display")
 const displayFirstNum = display.querySelector("#firstNum")
 const displaySecondNum = display.querySelector("#secondNum")
 const displayOperator = display.querySelector("#operator")
-
-console.log(`${displayFirstNum} ${displayOperator} ${displaySecondNum}`)
 
 displayFirstNum.textContent = ""
 displaySecondNum.textContent = ""
@@ -65,5 +63,9 @@ displayOperator.textContent = ""
 
 const digitButtons = document.querySelectorAll(".digit")
 digitButtons.forEach(button => {
-    button.addEventListener("click", () => console.log(button.id))
+    button.addEventListener("click", () => {
+        firstNum += `${button.id}`
+        displayFirstNum.textContent = firstNum
+    })
 })
+

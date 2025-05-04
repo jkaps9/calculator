@@ -26,7 +26,7 @@ section {
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    gap: 2px;
+    gap: 4px;
 }
 
 .display {
@@ -41,7 +41,7 @@ section {
 .button-row {
     flex: 1;
     display: flex;
-    gap: 2px;
+    gap: 4px;
 }
 
 .button-row button {
@@ -49,6 +49,8 @@ section {
     padding: 10px;
     font-size: 16px;
     font-weight: 500;
+    border: 1px black solid;
+    border-radius: 2px;
 }
 
 #equals {

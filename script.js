@@ -1,16 +1,17 @@
-// function Calculator() {
-//     this.methods = {
-//         "+": (a, b) => a + b,
-//         "-": (a, b) => a - b
-//     }
-//     this.calculate = function (str) {
-//         let arr = str.split(" ")
-//         return this.methods[arr[1]](+arr[0], +arr[2])
-//     }
-//     this.addMethod = function (name, func) {
-//         this.methods[name] = func
-//     }
-// }
+let operator = ""
+let firstNum = ""
+let secondNum = ""
+
+const display = document.querySelector(".display")
+const displayFirstNum = display.querySelector("#firstNum")
+const displaySecondNum = display.querySelector("#secondNum")
+const displayOperator = display.querySelector("#operator")
+
+function refreshDisplay(operator, firstNum, secondNum) {
+    displayFirstNum.textContent = firstNum
+    displaySecondNum.textContent = secondNum
+    displayOperator.textContent = operator
+}
 
 function add(a, b) {
     return +a + +b
@@ -32,38 +33,27 @@ function divide(a, b) {
 function operate(operator, firstNum, secondNum) {
     switch (operator) {
         case "+":
-            return add(firstNum, secondNum)
+            firstNum = `${add(firstNum, secondNum)}`
             break
         case "-":
-            return subtract(firstNum, secondNum)
+            firstNum = `${subtract(firstNum, secondNum)}`
             break
         case "*":
-            return multiply(firstNum, secondNum)
+            firstNum = `${multiply(firstNum, secondNum)}`
             break
         case "/":
-            return divide(firstNum, secondNum)
+            firstNum = `${divide(firstNum, secondNum)}`
             break
         default:
-            return 0
+            console.log("incorrect operator")
     }
+    secondNum = ""
+    operator = ""
+    refreshDisplay(operator, firstNum, secondNum)
 }
 
-let operator = ""
-let firstNum = ""
-let secondNum = ""
-
-const display = document.querySelector(".display")
-const displayFirstNum = display.querySelector("#firstNum")
-const displaySecondNum = display.querySelector("#secondNum")
-const displayOperator = display.querySelector("#operator")
-
-function refreshDisplay() {
-    displayFirstNum.textContent = firstNum
-    displaySecondNum.textContent = secondNum
-    displayOperator.textContent = operator
-}
-
-refreshDisplay()
+//clear display on first load
+refreshDisplay(operator, firstNum, secondNum)
 
 const digitButtons = document.querySelectorAll(".digit")
 digitButtons.forEach(button => {
@@ -73,7 +63,7 @@ digitButtons.forEach(button => {
         } else {
             secondNum += `${button.id}`
         }
-        refreshDisplay()
+        refreshDisplay(operator, firstNum, secondNum)
     })
 })
 
@@ -82,13 +72,20 @@ clearButton.addEventListener("click", () => {
     firstNum = ""
     operator = ""
     secondNum = ""
-    refreshDisplay()
+    refreshDisplay(operator, firstNum, secondNum)
 })
 
 const operatorButtons = document.querySelectorAll(".operator")
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
         operator = `${button.id}`
-        refreshDisplay()
+        refreshDisplay(operator, firstNum, secondNum)
     })
+})
+
+const equalsButton = document.querySelector("#equals")
+
+equalsButton.addEventListener("click", () => {
+    operate(operator, firstNum, secondNum)
+
 })

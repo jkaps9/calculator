@@ -29,13 +29,19 @@ section {
     gap: 4px;
 }
 
-.display {
+.display-container {
     background-color: white;
-    padding: 10px 20px;
     margin-bottom: 10px;
+    min-height: 45px;
+    display: flex;
+}
+
+.display {
+    flex: 1;
+    border: none;
     text-align: end;
     font-size: 20px;
-    min-height: 45px;
+    padding: 0px 20px;
 }
 
 .button-row {

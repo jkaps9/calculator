@@ -3,14 +3,9 @@ var firstNum = ""
 var secondNum = ""
 
 const display = document.querySelector(".display")
-const displayFirstNum = display.querySelector("#firstNum")
-const displaySecondNum = display.querySelector("#secondNum")
-const displayOperator = display.querySelector("#operator")
 
 function refreshDisplay() {
-    displayFirstNum.textContent = firstNum
-    displaySecondNum.textContent = secondNum
-    displayOperator.textContent = operator
+    display.value = `${firstNum} ${operator} ${secondNum}`
 }
 
 function add(a, b) {

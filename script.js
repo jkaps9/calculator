@@ -1,13 +1,13 @@
-let operator = ""
-let firstNum = ""
-let secondNum = ""
+var operator = ""
+var firstNum = ""
+var secondNum = ""
 
 const display = document.querySelector(".display")
 const displayFirstNum = display.querySelector("#firstNum")
 const displaySecondNum = display.querySelector("#secondNum")
 const displayOperator = display.querySelector("#operator")
 
-function refreshDisplay(operator, firstNum, secondNum) {
+function refreshDisplay() {
     displayFirstNum.textContent = firstNum
     displaySecondNum.textContent = secondNum
     displayOperator.textContent = operator
@@ -30,30 +30,30 @@ function divide(a, b) {
     return +a / +b
 }
 
-function operate(operator, firstNum, secondNum) {
-    switch (operator) {
+function operate(op, num1, num2) {
+    switch (op) {
         case "+":
-            firstNum = `${add(firstNum, secondNum)}`
+            firstNum = `${add(num1, num2)}`
             break
         case "-":
-            firstNum = `${subtract(firstNum, secondNum)}`
+            firstNum = `${subtract(num1, num2)}`
             break
         case "*":
-            firstNum = `${multiply(firstNum, secondNum)}`
+            firstNum = `${multiply(num1, num2)}`
             break
         case "/":
-            firstNum = `${divide(firstNum, secondNum)}`
+            firstNum = `${divide(num1, num2)}`
             break
         default:
-            console.log("incorrect operator")
+            console.log("invalid operator")
     }
     secondNum = ""
     operator = ""
-    refreshDisplay(operator, firstNum, secondNum)
+    refreshDisplay()
 }
 
 //clear display on first load
-refreshDisplay(operator, firstNum, secondNum)
+refreshDisplay()
 
 const digitButtons = document.querySelectorAll(".digit")
 digitButtons.forEach(button => {
@@ -63,7 +63,7 @@ digitButtons.forEach(button => {
         } else {
             secondNum += `${button.id}`
         }
-        refreshDisplay(operator, firstNum, secondNum)
+        refreshDisplay()
     })
 })
 
@@ -72,20 +72,20 @@ clearButton.addEventListener("click", () => {
     firstNum = ""
     operator = ""
     secondNum = ""
-    refreshDisplay(operator, firstNum, secondNum)
+    refreshDisplay()
 })
 
 const operatorButtons = document.querySelectorAll(".operator")
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
+        if (operator != "") {
+            operate(operator, firstNum, secondNum)
+        }
         operator = `${button.id}`
-        refreshDisplay(operator, firstNum, secondNum)
+        refreshDisplay()
     })
 })
 
 const equalsButton = document.querySelector("#equals")
 
-equalsButton.addEventListener("click", () => {
-    operate(operator, firstNum, secondNum)
-
-})
+equalsButton.addEventListener("click", () => operate(operator, firstNum, secondNum))

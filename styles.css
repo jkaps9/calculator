@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -8,17 +10,31 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: darkcyan;
+    background-color: #eee;
+    font-family: Orbitron, Arial, Helvetica, sans-serif;
 }
 
 header,
 footer {
     flex: 0;
     height: 72px;
+    padding: 10px 25px;
+    color: blue;
 }
 
 section {
     flex: 1;
+}
+
+button {
+    font-family: Orbitron, Arial, Helvetica, sans-serif;
+
+}
+
+#calculator {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .calculator-container {
@@ -27,21 +43,25 @@ section {
     flex-direction: column;
     max-width: 500px;
     gap: 4px;
+    background-color: white;
+    padding: 25px 10px 15px;
+    border-radius: 15px;
 }
 
 .display-container {
     background-color: white;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     min-height: 45px;
     display: flex;
 }
 
 .display {
     flex: 1;
-    border: none;
+    border: 1px solid black;
     text-align: end;
     font-size: 20px;
     padding: 0px 20px;
+    font-family: Orbitron, Arial, Helvetica, sans-serif;
 }
 
 .button-row {
@@ -55,11 +75,29 @@ section {
     padding: 10px;
     font-size: 16px;
     font-weight: 500;
-    border: 1px black solid;
+    border: 1px blue solid;
     border-radius: 2px;
+    background-color: transparent;
+}
+
+.button-row button:hover {
+    background-color: #eee;
 }
 
 #equals {
     background-color: blue;
     color: white;
+}
+
+#equals:hover {
+    background-color: darkblue;
+}
+
+#clear {
+    background-color: brown;
+    color: white;
+}
+
+#clear:hover {
+    background-color: #721d1d;
 }

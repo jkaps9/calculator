@@ -117,3 +117,17 @@ decimalButton.addEventListener("click", () => {
     }
     refreshDisplay()
 })
+
+const deleteButton = document.querySelector("#delete")
+
+deleteButton.addEventListener("click", () => {
+
+    if (firstNum != "" && operator === "" && secondNum === "") {
+        firstNum = firstNum.slice(0, firstNum.length - 1)
+    } else if (firstNum != "" && operator != "" && secondNum === "") {
+        operator = ""
+    } else if (firstNum != "" && operator != "" && secondNum != "") {
+        secondNum = secondNum.slice(0, secondNum.length - 1)
+    }
+    refreshDisplay()
+})

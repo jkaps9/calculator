@@ -126,3 +126,29 @@ deleteButton.addEventListener("click", () => {
     }
     refreshDisplay()
 })
+
+display.addEventListener("input", parseDisplay)
+
+function isAcceptableInput(string) {
+    const acceptableValues = "0123456789+-*/. "
+    let unacceptableInputs = string
+        .split('')
+        .filter((character) => !acceptableValues.includes(character))
+    return unacceptableInputs.length === 0
+}
+
+function parseDisplay() {
+    let string = display.value.replaceAll(" ", "")
+    if (isAcceptableInput(string)) {
+        const operators = "+-*/"
+        let parsedOp = string
+            .split('')
+            .filter((character) => operators.includes(character))
+        operator = parsedOp.length === 1 ? parsedOp[0] : ""
+        firstNum = string.slice(0, parsedOp.length === 1 ? string.indexOf(operator) : string.length)
+        let num2 = string.slice(parsedOp.length === 1 ? string.indexOf(operator) + 1 : string.length + 1, string.length + 1)
+        if (num2 != operator) {
+            secondNum = num2
+        }
+    }
+}

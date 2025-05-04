@@ -84,3 +84,11 @@ clearButton.addEventListener("click", () => {
     secondNum = ""
     refreshDisplay()
 })
+
+const operatorButtons = document.querySelectorAll(".operator")
+operatorButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        operator = `${button.id}`
+        refreshDisplay()
+    })
+})

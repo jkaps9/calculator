@@ -50,3 +50,8 @@ section {
     font-size: 16px;
     font-weight: 500;
 }
+
+#equals {
+    background-color: blue;
+    color: white;
+}

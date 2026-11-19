@@ -41,13 +41,8 @@ function operate(op, num1, num2) {
         firstNum = `${multiply(num1, num2)}`;
         break;
       case "/":
-        if (num2 === 0) {
-          alert("DOH! CANT DIVIDE BY ZERO");
-          break;
-        } else {
-          firstNum = `${divide(num1, num2)}`;
-          break;
-        }
+        firstNum = `${divide(num1, num2)}`;
+        break;
       default:
         console.log("invalid operator");
     }

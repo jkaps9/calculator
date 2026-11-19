@@ -61,7 +61,7 @@ button {
 .display-container {
   background-color: white;
   margin-bottom: 0.5rem;
-  min-height: 3rem;
+  min-height: 4rem;
   display: flex;
 }
 
@@ -87,7 +87,7 @@ button {
   font-weight: 500;
   border: 1px blue solid;
   border-radius: 2px;
-  background-color: transparent;
+  background-color: white;
 }
 
 .button-row button:hover {
